@@ -1,8 +1,8 @@
 import cv2
 
-img = cv2.imread("cropped_plates/plate_20.png")
+img = cv2.imread("cropped_plates/plate2014_00.png")
 
-with open("cropped_plates/plate_00.txt") as f:
+with open("cropped_plates/plate2014_00.txt") as f:
     lines = f.read().strip().split("\n")
 
     for (idx, line) in enumerate(lines):
