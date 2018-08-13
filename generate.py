@@ -53,7 +53,7 @@ def generate_2014(template, characters):
 
     baseplate = cv2.imread(template_basename + ".png")
     characters = characters.replace('-', '')
-    img_paths = ["generator/1992/characters/%s.png" % c for c in characters]
+    img_paths = ["generator/2014/characters/%s.png" % c for c in characters]
 
     for (idx, box) in enumerate(boxes):
         (width, height) = (box[2] - box[0], box[3] - box[1])
@@ -191,10 +191,10 @@ def demo1992():
 
 def demo2014():
     templates = ["black_white_2014", "black_yellow_2014", "electric_black_white_2014", "electric_green_white_2014",
-                 "electric_red_white_2014", "green_white_2014", "handicap_2014", "red_white_2014", "white_green_2014",
-                 "white_red_2014"]
+                 "electric_red_white_2014", "electric_handicap_2014", "green_white_2014", "handicap_2014",
+                 "red_white_2014", "white_green_2014", "white_red_2014"]
 
-    (rows, cols) = (5, 2)
+    (rows, cols) = (5, 3)
     canvas = np.zeros(shape=(rows * plate_height_2014, cols * plate_width_2014, 3), dtype=np.uint8)
     plates = []
 
@@ -207,6 +207,7 @@ def demo2014():
         (row, col) = (idx % rows, idx // rows)
         (y1, x1) = (row * plate_height_2014, col * plate_width_2014)
         (y2, x2) = (y1 + plate_height_2014, x1 + plate_width_2014)
+        print(plate.shape)
         canvas[y1:y2, x1:x2] = plate
 
     return canvas

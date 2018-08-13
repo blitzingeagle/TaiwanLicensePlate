@@ -3,8 +3,8 @@ import cv2
 # img_1992 = cv2.imread("ROC_1992.png")
 # cv2.imshow("1992", img_2014)
 
-# img_2014 = cv2.imread("ROC_2014.png")
-img_2014 = cv2.imread("cropped_plates/plate2014_00.png")
+img_2014 = cv2.imread("ROC_2014.png")
+# img_2014 = cv2.imread("cropped_plates/plate2014_00.png")
 # cv2.imshow("2014", img_2014)
 
 (img_2014_h, img_2014_w, _) = img_2014.shape
