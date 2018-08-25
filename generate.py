@@ -302,9 +302,29 @@ def create_dataset():
         cv2.imwrite(fs_template % (plate_code, "electric_green_white_3_2"), plate)
 
 
+def main():
+    regions = ["gaoxiongshi", "jinmenxian", "lianjiangxian", "taibeishi", "taiwansheng", "blank"]
+    fs_template = "generated/%s_%s.png"
+
+    plate_codes = generate_random_plates("??-XXXX", count=3000)
+    for plate_code in plate_codes:
+        region = regions[randint(0, len(regions) - 2)]
+        plate = generate_1992("black_white_2_4", plate_code, region)
+        cv2.imwrite(fs_template % (plate_code, "black_white_2_4"), plate)
+
+    plate_codes = generate_random_plates("XXXX-??", count=3000)
+    for plate_code in plate_codes:
+        region = regions[randint(0, len(regions) - 1)]
+        plate = generate_1992("black_white_4_2", plate_code, region)
+        cv2.imwrite(fs_template % (plate_code, "black_white_4_2"), plate)
+
+    plate_codes = generate_random_plates("AAA-XXXX", count=4000)
+    for plate_code in plate_codes:
+        plate = generate_2014("black_white_2014", plate_code)
+        cv2.imwrite(fs_template % (plate_code, "black_white_2014"), plate)
+
+
 if __name__ == "__main__":
-    # create_dataset()
-    #
     # templates = ["black_white_2014", "black_yellow_2014", "electric_black_white_2014", "electric_green_white_2014",
     #              "electric_red_white_2014", "green_white_2014", "handicap_2014", "red_white_2014", "white_green_2014",
     #              "white_red_2014"]
@@ -325,3 +345,5 @@ if __name__ == "__main__":
 
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+
+    # main()
